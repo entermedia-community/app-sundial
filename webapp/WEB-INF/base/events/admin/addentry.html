@@ -1,0 +1,50 @@
+<script type="text/javascript" src="$home/events/media/picker/datetimepicker.js"></script>
+<span style="color: red;">$!errors.vfrom</span><br>
+<span style="color: red;">$!errors.summary</span>
+
+<form name="addnew" action="$home/${eventsid}/admin/addentrysave.html">
+
+<input type="hidden" name="origURL" value="$home/${eventsid}/admin/editmonth.html" />
+
+<h3>Create new event:</h3>
+<table cellspacing=5 >
+	<tr><td align=right>Summary:</td>
+		<td><input type=text name=summary size=30  /></td>
+	</tr>
+	<tr><td colspan=2 ><b>Set meeting time:</b></td></tr>
+	<tr>
+		<td align="right">From:</td><td><input type="Text" id="vfrom" name="vfrom" val="$!context.getRequestParameter("vfrom")" size="20"><a href="javascript:NewCal('vfrom','mmddyyyy',true,12)"><img src="$home/events/media/picker/cal.gif" width="16" height="16" border="0" alt="Pick a date"></a></td>
+	</tr>
+	
+	<tr>
+		<td align="right">To:</td><td><input type="Text" id="vto" name="vto"  size="20"><a href="javascript:NewCal('vto','mmddyyyy',true,12)"><img src="$home/events/media/picker/cal.gif" width="16" height="16" border="0" alt="Pick a date"></a></td>
+	</tr>
+	<tr>
+		<td align=right>Select Location:</td>
+		<td>										
+			<select name="location">
+				<option />											
+			#foreach( $category in $usercalendar.getLocations().elements("location") )
+				<option  
+				#if ($category.attributeValue('id').equals($!event.getLocation())) 
+					selected
+				#end
+				>$category.attributeValue('id')</option>
+			#end		
+		</td>
+	</tr>
+	<tr>
+		<td align=right valign="top" >Select Categories:</td>
+		<td>
+	#foreach( $category in $usercalendar.getCategories().elements("category") )
+		<input type="checkbox" name="category" value="$category.attributeValue('id')">$category.attributeValue('id')<br>
+	#end
+		</td>
+	</tr>
+	<tr><td align=right>Phone:</td>
+		<td><input type="text" name="property.phone" size=30  /></td>
+	</tr>
+	<tr><td> </td><td align=left><input type=submit  value="Save"/></td></tr>
+</table>
+
+</form>

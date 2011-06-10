@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<page>
+	<page-action name="EventsModule.loadMonthList" />
+	<page-action name="EventsModule.selectDateRange" />
+	<page-action name="EventsModule.selectCalendar" />
+</page>

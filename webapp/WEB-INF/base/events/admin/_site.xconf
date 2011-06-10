@@ -1,0 +1,17 @@
+<page>
+	<inner-layout>/${eventsid}/admin/innerlayout.html</inner-layout>
+	<property name="editable">false</property>
+	<path-action name="EventsModule.getUserCalendar" />
+
+   	<view-requirements>
+		<permission name="oe.events.admin"/>
+	</view-requirements>
+
+	<path-action name="Admin.allowViewing">
+		<!-- This is the path to which to redirect if the user does not have the
+	         appropriate view permission.  Defaults to /openedit/authentication/logon.html.			
+		-->
+		<login-path>/openedit/authentication/logon.html</login-path>
+	</path-action>
+   	
+</page>

@@ -1,0 +1,47 @@
+<h3>Event Details:</h3>
+
+<p>
+	<b>Summary:</b> $!event.summary <br>
+</p>
+<p>
+	<b>Description:</b> $!event.description <br>
+</p>
+<p>
+<b>	Meeting times:</b> $event.startTime - $event.endTime
+</p>
+<p>
+	<b>Attendees:</b><br>
+	<div style="padding-left: 30px;">
+	#foreach( $attendent in $event.attendes )
+		<a href="edit.html?username=$attendent">$attendent</a> <br>
+	#end
+	</div>
+</p>
+
+#if( $event.getLocation() )
+<p><b>Location:</b> $event.getLocation()</p>
+#end
+
+#if( $event.getCategory() )
+<p><b>Category:</b> $event.getCategory()</p>
+#end
+#if( $event.getPriority() )
+	<p><b>Priority Level:</b> $event.getPriority()</p> 
+#end
+
+#set( $phone = $event.getProperty("phone"))
+#if( $phone)
+	<p><b>Phone:</b> $phone</p>
+#end
+
+#if( $pages.doesExist( "/${eventsid}/details/${event.id}.html") )
+	$pages.include("/${eventsid}/details/${event.id}.html")
+#end
+	
+<p>
+<a href="$home/${eventsid}/index.html"><< Back to Calendar</a>
+
+#if( $user )	
+<a href="$home/$eventsid/admin/index.html"> Edit Calendar</a>
+#end
+</p>	

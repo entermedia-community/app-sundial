@@ -1,0 +1,6 @@
+<page>
+	<inner-layout>/${eventsid}/showevent.html</inner-layout>
+	<path-action name="EventsModule.loadEvent" />
+	<property name="editable">true</property>
+	<property name="virtual">true</property>
+</page>

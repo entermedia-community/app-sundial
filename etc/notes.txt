@@ -1,0 +1,20 @@
+Need to:
+
+1. Fix menys to come up in the right order
+2. Complete the In out board feature
+3. Admin link on home page (points to usermanager)
+4. Complete the calendar
+
+5.	Use the inout board to set the vacation policy
+6.	Loop over links.xml file loaded up with events?
+	Can we sync it?
+	
+	Change group to be named "allusers"
+	
+	Make employee area editable
+	Add list of vacations to inout board
+	Build list of vacations on the fly
+
+	Add network status
+	Add form for job request (from word) (send email)
+	

@@ -1,0 +1,10 @@
+<p>Your account does not have permission to access 'Edit Meetings'.</p>
+
+<p>
+#if($user.hasPermission("oe.usermanager"))
+	Use the <a href="$home/openedit/usermanager">Account Manager</a> to enable the Edit Event permission or
+#else
+	Please contact your system adminstator if you need more permissions or
+#end
+
+<a href="$home/events">Return to Events Calendar</a></p>

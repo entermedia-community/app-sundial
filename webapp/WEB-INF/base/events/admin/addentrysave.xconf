@@ -1,0 +1,16 @@
+<page>
+	<path-action name="ValidationModule.validate">
+			<error-url name="/events/admin/addentry.html"/>
+			<field name="vfrom">
+				<rule name="required">You must specify at least a start date</rule>
+			</field>
+		<field name="summary">
+				<rule name="required">Please provide a summary description</rule>
+			</field>
+		
+	</path-action>
+	
+	<path-action name="CalendarEditModule.saveEvent" />
+	<page-action name="Admin.redirectToOriginal" />
+	
+</page>

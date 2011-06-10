@@ -1,0 +1,67 @@
+<a href="$home/${eventsid}/list.html">Switch to list view</a>
+#set( $month = $usercalendar.selectedMonth)
+<p align="right">			
+<form action="month.html" >
+<select name="smonth" size="1">
+
+<OPTION VALUE="">Select a Month</OPTION>
+#foreach( $month in $months )
+<OPTION VALUE='$month.id'>$month.description</OPTION>
+#end
+</SELECT>
+<input type="submit" name="Submit" value="Go">
+
+</FORM>
+
+<table border="1" cellspacing="0" cellpadding="1" width="100%"> 
+	<tr>
+		<td bgCOLOR="#333366" align="center" colspan="7">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+	
+				<td align="right">
+					#if( $month.prevMonth )
+					<b><A HREF="month.html?smonth=$month.prevMonth.id" style="color: #FFFFFF"><img border="0" src="$home/events/media/images/b1_back.gif"></A></b>
+					#end
+					</TD>
+					<td align="center"><font color="#FFFFFF"><B>$month.description</B></font></TD>
+					<td align="left">
+					#if ( $month.nextMonth.id )
+						<b><A HREF="month.html?smonth=$month.nextMonth.id" style="color: #FFFFFF"><img border="0" src="$home/events/media/images/b1_next.gif"></A></b>
+					#end
+					</TD>
+					<td align="right" valign="top">&nbsp;</td>
+				</tr>
+			</TABLE>
+		</td>
+	</tr>
+
+	<tr bgCOLOR="#333366">
+		<td ALIGN="center" width="80"><B><font color="#FFFFFF">Sun</font></B></TD>
+		<td ALIGN="center" width="80"><B><font color="#FFFFFF">Mon</font></B></TD>
+		<td ALIGN="center" width="80"><B><font color="#FFFFFF">Tue</font></B></TD>
+		<td ALIGN="center" width="80"><B><font color="#FFFFFF">Wed</font></B></TD>
+		<td ALIGN="center" width="80"><B><font color="#FFFFFF">Thu</font></B></TD>
+
+		<td ALIGN="center" width="80"><B><font color="#FFFFFF">Fri</font></B></TD>
+		<td ALIGN="center" width="80"><B><font color="#FFFFFF">Sat</font></B></TD>
+	</tr>
+	#set( $monthevents = $usercalendar.findEventsForMonth($month))
+	#foreach( $week in $month.getDaysAsWeeks() )
+	<tr>
+		#foreach( $day in $week )
+		<td align=left valign=top height=60><b>$!day.number</b>
+			<br><font size=-2>
+				#foreach( $event in $usercalendar.findEventsForDay($day,$monthevents) )
+					<a href="$home/${eventsid}/view/${event.id}.html">$event.summary</a><br>
+				#end
+			</font>			
+		</td>
+		#end
+	</tr>
+	#end
+</table>
+
+<!-- Causes problems in Tomcat (incorrect MIME type)
+<a href="meetings.ics">Download iCal File</a>
+-->

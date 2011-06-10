@@ -1,0 +1,103 @@
+<script type="text/javascript" src="$home/events/media/picker/datetimepicker.js"></script>
+<table>		 
+<tr>
+   <td valign="top">
+		$pages.streamContent()
+  </td>
+  <td class="utilities" valign="top" width="151">
+      <table border="0" cellpadding="0" cellspacing="0">
+         <form name="search" action="$home/events/search/results.html" method="post" >
+           <tr>
+                 <td colspan="5" align="center"><img src="$home/events/layout/images/pixel-lt-gray_002.gif" height="3" width="1">
+                            <br>
+           	#if( $user.getUserName().equals($usercalendar.getUser().getUserName() ) )
+           		<a href="$home/events/admin/">Admin Interface</a>
+           	#end
+                 
+                 </td>
+               </tr>
+           <tr>
+             <td colspan="5"><img src="$home/${eventsid}/layout/images/pixel-lt-gray_002.gif" height="2" width="1"></td>
+           </tr>
+			<tr>
+				<td align="right"  >From:</td><td colspan="4"><input type="Text" id="vfrom" name="vfrom"  size="15"><a href="javascript:NewCal('vfrom','mmddyyyy',true,12)"><img src="$home/events/media/picker/cal.gif" width="16" height="16" border="0" alt="Pick a date"></a></td>
+			</tr>
+
+           <tr>
+             <td colspan="5"><img src="$home/${eventsid}/layout/images/pixel-lt-gray_002.gif" height="8" width="1"></td>
+           </tr>
+          <tr>
+             <td colspan="5"><img src="$home/${eventsid}/layout/images/pixel-lt-gray_002.gif" height="3" width="1"></td>
+           </tr>
+			<tr>
+				<td align="right"  >To:</td><td colspan="4"><input type="Text" id="vto" name="vto"  size="15"><a href="javascript:NewCal('vto','mmddyyyy',true,12)"><img src="$home/events/media/picker/cal.gif" width="16" height="16" border="0" alt="Pick a date"></a></td>
+			</tr>
+
+	           <tr>
+	             <td colspan="5"><img src="$home/${eventsid}/layout/images/pixel-lt-gray_002.gif" height="8" width="1"></td>
+	           </tr>
+	            <tr><td></td>
+	         <td colspan="4" class="form_text">Select Category (optional):</td>
+	           </tr>
+	               <tr>
+	                 <td colspan="5" align="center">
+	                   <font size="1">
+	                     <select name="category" size="5" multiple="yes">
+	                       <option>ANY</option>
+	
+	#foreach( $category in $usercalendar.getCategories().elements("category") )
+	                 <option>$category.attributeValue('id')</option>
+	#end
+	
+	                     </select>
+	                   </font>
+	                 </td>
+	              </tr>
+	              <tr>
+	                 <td colspan="5"><img src="$home/${eventsid}/layout/images/pixel-lt-gray_002.gif" height="8" width="1"></td>
+	               </tr>
+                           <tr><td></td>
+			     <td colspan="4" class="form_text">Select Location (optional):</td></tr>
+			       <tr>
+			         <td colspan="5" align="center">
+			           <font size="1">
+			             <select name="location" multiple="yes" size="5">
+			               <option>ANY</option>
+			               
+			#foreach( $location in $usercalendar.getLocations().elements("location") )
+			         <option>$location.attributeValue('id')</option>
+			#end
+                </select>
+               </font>
+             </td>
+          </tr>
+          <tr>
+            <td colspan="5"><img src="$home/${eventsid}/layout/images/pixel-lt-gray_002.gif" height="8" width="1"></td>
+          </tr>
+          <tr>
+            <td colspan="4" align="right"><input src="$home/${eventsid}/layout/images/search_button.gif" onClick="document.search.submit();" name="Submit" border="0" type="image"></td>
+            <td></td>
+         </tr>
+         <tr>
+           <td colspan="5" align="center"><img src="$home/${eventsid}/layout/images/pixel-lt-gray_002.gif" height="8" width="156">
+           </br>
+           </td>
+         </tr>
+           			#if ($user)
+	           			#if ($user.hasPermission("oe.events.admin"))
+           <tr>
+           		<td align="center" colspan="5" >
+    	       				<p><a href="$home/${eventsid}/admin/index.html">Edit Events</a></p>
+           		</td>
+           </tr>
+    	       			#end
+    	       		#end
+
+     </tbody></form></table>
+   </td>
+ </tr>         
+  </tbody></table>
+   </td>
+</tr>
+</tbody></table>
+

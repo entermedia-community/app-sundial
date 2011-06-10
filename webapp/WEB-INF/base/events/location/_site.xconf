@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<page>
+	<page-action name="EventsModule.searchByLocation" />
+	<inner-layout>/events/layout/results.html</inner-layout>
+	<property name="virtual">true</property>
+</page>

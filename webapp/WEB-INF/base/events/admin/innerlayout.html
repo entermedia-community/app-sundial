@@ -1,0 +1,45 @@
+<link rel="stylesheet" type="text/css" href="$home/openedit/admin.css"/>
+<link rel="stylesheet" type="text/css" href="$home/events/_styles.css"/>
+  
+<table class="oemenuback">
+	<tr>
+		<td class="oe-module-title">	
+			Event Editor: <a href="$home/${eventsid}/admin/catalogeditor.html" style="color:white">$!catalog.name</a>
+		</td>
+		<td class="oe-module-actions">
+			#if ($calendarpage.isDraft())
+				<a  class="oelink-button" href="$home/openedit/workflow/approve-finished.html?editPath=$calendarpage.path&origURL=$content.path" class="standard-button">Approve this Calendar</a>
+			#end
+			<a class="oelink-button" href="$home/${eventsid}/admin/editmonth.html" class="standard-button" >Month View</a>
+			<a class="oelink-button" href="$home/${eventsid}/admin/listview.html" class="standard-button" >List View</a>
+			<a class="oelink-button" href="$home/${eventsid}/admin/addentry.html" class="standard-button" >Add Entry</a>
+			<a class="oelink-button" href="$home/${eventsid}/admin/push.html" class="standard-button" >Push</a>
+			<input onclick="openHelp( 'http://www.openedit.org/events/' );" value="Help" name="Help" type="button" class="standard-button">
+		</td>
+	</tr>
+</table>
+
+<table height="90%" width="100%" cellpadding="8">
+	<tr>
+	  	<td height="100%" valign="top" width="250">
+	  		<table width="100%" class="standard-table">
+				<tr>
+					<td valign="top">
+						<!-- BEGIN USERSANDGROUPS-->
+						 $pages.stream("/events/admin/links.html" ) 
+						<!-- END USERSANDGROUPS -->
+					</td>
+				</tr>
+			</table>
+	    </td>
+		<td valign="top" >   
+			<!-- BEGIN CONTENT -->
+		   	   $pages.streamContent()
+			<!-- END CONTENT -->   	   
+		</td>
+	</tr>
+</table>
+
+
+<br>
+$pages.streamContent()

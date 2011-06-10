@@ -1,0 +1,64 @@
+<!--
+          <div class="nav_section">
+		  	<a class="cu_featured" href="http://calendar.columbia.edu/cu_featured.html">Featured</a>           
+         </div> 
+		  <div class="nav_section">
+		  	<a id="todaylink" href="http://calendar.columbia.edu/dynamic.php?click=search&amp;categoryFilter=TAE&amp;dateStart=2006-8-17&amp;dateEnd=2006-8-17%2023:59:59&amp;today=1">Today's Events</a>
+		  </div>
+		 <div class="nav_section">
+		 	<a class="acad" href="http://calendar.columbia.edu/acad.html">Academic</a>
+			<a class="acad_conf" href="http://calendar.columbia.edu/acad_conf.html">Conferences</a>
+			<a class="acad_lect" href="http://calendar.columbia.edu/acad_lect.html">Lectures</a>
+		 </div>
+		 <div class="nav_section">
+			<a class="alum" href="http://calendar.columbia.edu/alum.html">Alumni</a>
+			
+	  	 </div>
+		 <div class="nav_section">
+			<a class="arts" href="http://calendar.columbia.edu/arts.html">Arts</a>
+		    <a class="arts_dance" href="http://calendar.columbia.edu/arts_dance.html">Dance</a>
+			    <a class="arts_exhibits" href="http://calendar.columbia.edu/arts_exhibits.html">Exhibitions</a>
+			    <a class="arts_films" href="http://calendar.columbia.edu/arts_films.html">Film</a>
+			    <a class="arts_music" href="http://calendar.columbia.edu/arts_music.html">Music</a>
+			    <a class="arts_read" href="http://calendar.columbia.edu/arts_read.html">Readings/Talks</a>
+			    <a class="arts_theater" href="http://calendar.columbia.edu/arts_theater.html">Theater</a>			
+			  </div>
+			  
+			  <div class="nav_section">
+			    <a class="athletics" href="http://calendar.columbia.edu/athletics.html">Athletics</a>
+			  </div>
+			  
+			  <div class="nav_section">
+			    <a class="community" href="http://calendar.columbia.edu/community.html">Community</a>
+			  </div>
+			  
+			  <div class="nav_section">
+			    <a class="cultural" href="http://calendar.columbia.edu/cultural.html">Cultural</a>
+			  </div>
+			  
+			  <div class="nav_section">
+			    <a class="religious" href="http://calendar.columbia.edu/religious.html">Religious</a>
+			  </div>
+			  
+			  <div class="nav_section">
+			    <a class="other" href="http://calendar.columbia.edu/other.html">Other events</a>
+			    <a class="other_sub" href="http://calendar.columbia.edu/other.html">(career fairs, family events, and more...) </a>
+			  </div>
+			  
+			  <div class="nav_section">
+			    <a class="med" href="http://sklad.cumc.columbia.edu/calendar/">Medical Center</a>
+			  </div>			 
+-->
+
+
+#foreach ( $link in $linktree.getLinkChildren("events") )
+	 <div class="nav_section">
+         <a href="$home$link.url" #if ( $link.isChildSelected() )class=smenu #else class=menu #end >$link.text</a>
+		#foreach( $child in $link.children )
+         <div class="nav_detail">
+         <a href="$home$child.url" #if ( $child.isChildSelected() )class=smenu #else class=menu #end >$child.text</a>
+		</div>
+		#end
+	 </div>
+#end
+ 

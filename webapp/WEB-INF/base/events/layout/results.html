@@ -1,0 +1,25 @@
+<table width="100%" align="left">
+<tr>
+<td width="100%" align="left">
+#foreach( $event in $hits.getPageOfHits() )      
+<table class="feature" cellspacing="0" cellpadding="0" width="100%"><tbody>
+<tr><td class="feature_photo" valign="top">
+		<div class="feature_item">
+			<div class="header">$!event.summary</div>
+			<div class="details"><strong>Date: </strong>$!event.toFromHours</div>
+			<div class="details"><strong>Location: </strong>$!event.location</div>
+		</div>
+</td></tr>
+<tr><td valign="bottom">
+  	<div class="details2">$!event.description 
+  	
+ #if( $pages.doesExist("$eventsid/details/${event.id}.html") )
+ 	<a href="$home/${eventsid}/details/${event.id}.html"><img border=0 src="$home/events/media/images/more_arrow.gif" /></a>
+ #end
+  	</div>
+</td></tr></tbody></table>
+      
+#end
+</td>
+</tr>
+</table>

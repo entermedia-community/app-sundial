@@ -1,0 +1,21 @@
+<h3>Push Selected Calendar</h3>
+
+#set( $cal = $usercalendar.selectedCalendar )
+
+#if( !$cal)
+	
+	Please select a calendar
+#else
+	
+	Please select a destination: 
+
+	<form name="pushform" action="$home/${eventsid}/admin/pushfinish.html">	
+	<select name="datadir">	
+		#foreach( $dir in $dataDirs )
+	<option>$dir</option>
+		#end
+	</select>
+	<p>This calendar will be copied to their data directory as a draft file.</p>
+		<input type="submit" value="Push" />
+	</form>
+#end

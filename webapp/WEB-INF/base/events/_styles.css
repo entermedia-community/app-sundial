@@ -1,0 +1,120 @@
+.calred
+{
+	color: #990033;
+	padding: 5px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-decoration: none;
+}
+.calgreen
+{
+	color: #339933;
+	padding: 5px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-decoration: none;
+}
+.calblue
+{
+	color: #3333FF;
+	padding: 5px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-decoration: none;
+}
+.calyellow
+{
+	color: #FF9900;
+	padding: 5px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-decoration: none;
+}
+.calbrown
+{
+	color: #996666;
+	padding: 5px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-decoration: none;
+}
+.calblack
+{
+	color: #330000;
+	padding: 5px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-decoration: none;
+}
+.calorange
+{
+	color: #FF9999;
+	padding: 5px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-decoration: none;
+}
+.calpink
+{
+	padding: 5px; 
+	font-weight: bold;
+	font-size: 8pt; 
+	text-decoration: none;
+	color: #FF00FF;
+}
+
+.smallcalred
+{
+	color: #990033;
+	font-size: 1em; 
+	text-decoration: none;
+}
+.smallcalgreen
+{
+	color: #339933;
+	font-size: 1em; 
+	text-decoration: none;
+}
+.smallcalblue
+{
+	color: #3333FF;
+	font-size: 1em; 
+	text-decoration: none;
+}
+.smallcalyellow
+{
+	color: #FF9900;
+	font-size: 1em; 
+	text-decoration: none;
+}
+.smallcalbrown
+{
+	color: #996666;
+	font-size: 1em; 
+	text-decoration: none;
+}
+.smallcalblack
+{
+	color: #330000;
+	font-size: 1em; 
+	text-decoration: none;
+}
+.smallcalorange
+{
+	color: #FF9999;
+	font-size: 1em; 
+	text-decoration: none;
+}
+.smallcalpink
+{
+	padding: 5px; 
+	font-size: 1em; 
+	color: #FF00FF;
+}
+
+.header
+{
+	font-weight: bold;
+	font-size: 1.2em; 
+
+}

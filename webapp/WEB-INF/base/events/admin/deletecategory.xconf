@@ -1,0 +1,4 @@
+<page>
+	<page-action name="CalendarEditModule.deleteCategory" />
+	<page-action name="Admin.redirectToOriginal" />
+</page>

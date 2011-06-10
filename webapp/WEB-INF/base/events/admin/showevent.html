@@ -1,0 +1,139 @@
+<script type="text/javascript" src="$home/events/media/picker/datetimepicker.js"></script>
+<table height="100%" width="80%" class="divided-box" cellspacing="0" cellpadding="0">
+	<tr>
+		<td class="divided-box-title" colspan="1">Event View</td>
+	</tr>
+	<tr>
+		<!--td class="divided-box-white" height="100%" valign="top">
+			<description>
+			$context.getPageProperty('text.checkpermissions'):</description>
+		</td-->
+		<td class="divided-box-blue" height="100%" valign="top">
+			<table class="standard-table">
+				<tr valign="top">
+					<td colspan="2">
+						<table cellpadding="5" cellspacing="5" border="0">
+							<tr>
+								<td nowrap>
+									<div class="submit-button">
+										<a href="javascript: document.savedetails.submit();"  name="Save Permissions" class="submit-button">Save Edits</a>
+									</div>
+								</td>
+								<td nowrap>
+									<div class="submit-button">
+									<form name="deleteform" method="post" action="$home/${eventsid}/admin/deleteevent.html" >
+										<input type="hidden" name="origURL" value="$eventsid/admin/editmonth.html" />
+										<input type="hidden" name="deleteevent" value="$event.id" />
+									<a class="submit-button" href="javascript: document.deleteform.submit();">
+									Delete</a>
+									</form>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="divided-box-white" width="100%">
+						<div class="divided-box-white" style="border: none;">
+							<form name="savedetails" method="post" action="$home/${eventsid}/admin/saveevent.html">
+								<input type="hidden" name="origURL" value="$content.path?eventId=$!event.id"/>
+								<input type="hidden" name="eventId" value="$!event.id"/>								
+							<h3>Event Details</h3>
+							<table>
+								<tr>								
+									<td><b>Title:</b></td>
+									<td><input type="text" name="summary" size="30" value="$!event.summary"/></td>
+								</tr>
+								<tr>
+									<td><b>Summary:</b></td>
+									<td><input type="text" size="30" name="description" value="$!event.description"/></td>
+								</tr>
+								<tr>
+									<td><b>Phone:</b></td>
+									<td><input type="text" size="30" name="property.phone" value="$!event.getProperty('phone')"/></td>
+								</tr>
+								<tr>
+									<td nowrap><b>From:</b></td> 
+									<td nowrap><input type="text" size="30" name="vfrom" id="vfrom" value="$event.startTime" /><a href="javascript:NewCal('vfrom','mmddyyyy',true,12)"><img src="$home/events/media/picker/cal.gif" width="16" height="16" border="0" alt="Pick a date"></a></td>
+								</tr>
+								<tr>
+									<td nowrap><b>To:</b></td> 
+									<td nowrap><input type="text" size="30" name="vto" id="vto" value="$event.endTime" /><a href="javascript:NewCal('vto','mmddyyyy',true,12)"><img src="$home/events/media/picker/cal.gif" width="16" height="16" border="0" alt="Pick a date"></a></td>
+								</tr>
+								<tr>
+										<td>
+											<b>Categories:</b>
+										</td>									
+										<td>
+										#foreach( $category in $usercalendar.getCategories().elements("category") )
+											<input type="checkbox" name="category" value="$category.attributeValue('id')"
+											#if ($event.hasCategory($category.attributeValue('id')))
+												checked
+											#end
+											>$category.attributeValue('id')<br>
+										#end
+										</td>
+								</tr>
+								<tr>
+									<td>
+										<b>Attendees:</b>
+									</td>
+									<td>
+										<div style="padding-left: 30px;">
+											#foreach( $attendent in $event.attendes )
+												<a href="$home/${eventsid}/admin/edit.html?username=$attendent">$attendent</a> <br>
+											#end
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<b>Location:</b>
+									</td>
+									<td>
+										<select name="location">
+											<option />											
+										#foreach( $category in $usercalendar.getLocations().elements("location") )
+											<option  
+											#if ($category.attributeValue('id').equals($!event.getLocation())) 
+												selected
+											#end
+											>$category.attributeValue('id')</option>
+										#end
+									</td>
+								</tr>
+															
+								<tr>
+									<td>
+										<b>Priority:</b>
+									</td>
+									<td>
+										$!event.getPriority()
+									</td>
+								</tr>	
+								<tr>
+									<td>
+										<b>Long Description:</b>
+									</td>
+									<td>
+							$pages.include("/events/details/${event.id}.html")
+									</td>
+								</tr>
+							</table>
+							</form>
+							<p>
+							
+							<a href="$home/${eventsid}/admin/editmonth.html"><< Back to Calendar</a>
+							</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table> 
+
+	

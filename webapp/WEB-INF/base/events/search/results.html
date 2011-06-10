@@ -1,0 +1,24 @@
+#set( $even = true )
+<table width="400">
+#foreach( $event in  $hits.getPageOfHits() )      
+
+	#if ( $even == false )
+		<tr style="background-color: #EEEEEE;">
+		#set( $even = true )
+	#else
+		<tr>
+		#set( $even = false )
+	#end
+<td class="feature_photo" valign="top">
+		<div class="feature_item"><div class="header">$event.summary</div>
+		<div class="details"><strong>Date: </strong>$event.startTime to $event.endTime</div><div class="details"><strong>Location: </strong>$!event.location </div></div>
+  	<div class="details2">$!event.description
+  	<a href="$home/events/showevent.html?eventId=$event.id"" >
+  		<img border="0" src="$home/events/media/images/more_arrow.gif" title="" alt=""></a>
+  	</div>
+</td></tr>     
+#end
+</table>
+#if ( $hits.getTotal() == 0 )
+	<p>No Events Found.</p>
+#end

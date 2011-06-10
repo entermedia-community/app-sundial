@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page>	
+		<inner-layout>/${eventsid}/layout/eventinnerlayout.html</inner-layout>
+		<property name="eventsid">events</property>
+		<property name="editable">false</property>
+		<property name="oe.edit.draftedits">false</property>
+		<property name="monthstoload">1</property>
+		<property name="oeplugintitle">
+			<value>Events</value>
+			<value locale="es">Eventos</value>
+		</property>
+  		<property name="oepluginbean">EventsModule</property>
+    	<property name="oeplugintype">openedit-events</property>
+</page>

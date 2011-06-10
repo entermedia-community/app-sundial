@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<user>
+  <user-name>admin</user-name>
+  <password>admin</password>
+  <creation-date>1146443297981</creation-date>
+  <properties>
+    <property name="email" value="admin@openedit.org"/>
+    <property name="firstName" value="The"/>
+    <property name="lastName" value="Administrator"/>
+  </properties>
+  <group id="administrators"/>
+  <group id="intranet"/>
+</user>

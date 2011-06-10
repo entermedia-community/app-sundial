@@ -1,0 +1,84 @@
+<script type="text/javascript" src="$home/${eventsid}/media/picker/datetimepicker.js"></script>
+<table height="100%" class="divided-box" cellspacing="0" cellpadding="0">
+	
+	<tr>
+				<tr valign="top">
+					<td class="divided-box-white" width="100%">
+						<div class="divided-box-white" style="border: none;">
+							<form name="savedetails" method="post" action="saveevent.html">
+								<input type="hidden" name="origURL" value="$content.path?eventId=$!event.id"/>
+								<input type="hidden" name="eventId" value="$!event.id"/>								
+							<h3>Event Details</h3>
+							<table>
+								<tr>								
+									<td><b>Title:</b></td><td>$!event.summary</td>
+								</tr>
+								<tr>
+									<td><b>Summary:</b></td><td>$!event.description</td>
+								</tr>
+								<tr>
+									<td nowrap><b>From:</b></td> 
+									<td nowrap>$event.startTime</td>
+								</tr>
+								<tr>
+									<td nowrap><b>To:</b></td> 
+									<td nowrap>$event.endTime</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										$pages.streamContent()
+									</td>
+								</tr>
+								<tr>
+										<td>
+											<b>Categories:</b>
+										</td>									
+										<td>
+										#foreach( $category in $usercalendar.getCategories().elements("category") )
+											#if ($event.hasCategory($category.attributeValue('id')))
+											$category.attributeValue('id')<br>
+											#end
+										#end
+										</td>
+								</tr>
+								<tr>
+									<td>
+										<b>Attendees:</b>
+									</td>
+									<td>
+										<div style="padding-left: 30px;">
+											#foreach( $attendent in $event.attendes )
+												<a href="edit.html?username=$attendent">$attendent</a> <br>
+											#end
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<b>Location:</b>
+									</td>
+									<td>
+										$!event.getLocation()
+									</td>
+								</tr>
+															
+							</table>
+							</form>
+
+							<p>
+
+							</p>
+							<p>
+							
+							<b>Priority:</b>$!event.getPriority()
+							<br/>
+							
+						</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table> 
+
+	

@@ -1,0 +1,4 @@
+<page>
+	<page-action name="CalendarEditModule.deleteLocation" />
+	<page-action name="Admin.redirectToOriginal" />
+</page>

@@ -1,0 +1,126 @@
+<!-- Begin users -->
+<table height="100%" class="oedivided-box" cellspacing="0" cellpadding="0">
+<tr>
+<td class="oedivided-box-title" colspan="2">Calendars</td>
+</tr>
+<tr>
+<td  height="100%" valign="top" >
+
+<table class="oedivided-box-blue" width="100%" border="0">
+	<tr>
+	<td>
+		<div width="100%" class="standard-table">
+		<a href="$home/${eventsid}/admin/addpage.html" target="_parent" class="oelink-button">Add New</a>
+	</div>
+	</td>
+	<td>
+	<div width="100%" class="standard-table">
+	<form name="refresh" method="post" action="$home/${eventsid}/admin/refresh.html" >
+		<input type="hidden" name="origURL" value="$content.path" />
+		<a href="javascript:document.refresh.submit();" class="oelink-button">Reload</a>
+	</form>
+	</div>
+	</td><td>
+	<div width="100%" class="standard-table">
+	<form name="deletecalendar" method="post" action="$home/${eventsid}/admin/deletecalendar.html" >
+		<input type="hidden" name="origURL" value="$content.path" />
+		<a href="javascript: if (confirm('Are you sure you want to delete this calendar?')) document.deletecalendar.submit();" class="oelink-button">Delete</a>
+	</form>
+	</div>
+	</td>
+</tr>
+</table>
+
+<div class="oelist-box">    
+	
+<table border="0" width="100%">
+	
+	#foreach( $cal in $usercalendar.getAllCalendars() )
+	<tr> #if( $usercalendar.selectedCalendar && $cal == $usercalendar.selectedCalendar)
+		<td width="100%" style="background: #CCCCF9;">
+     	#else
+     	<td width="100%">
+     	#end
+		<a href="$home/${eventsid}/admin/editmonth.html?calendar=$cal.id" class="cal$cal.color" >$cal.getPage().getName()</a></td>
+	</tr>
+	#end
+	<tr>
+		<td width="100%" #if( !$usercalendar.selectedCalendar ) style="background: #CCCCF9;" #end><a href="$home/${eventsid}/admin/editmonth.html?calendar=all" class="oeedit-link" >View All Together</a></td>
+	</tr>
+</table>        
+</div>       
+</td>
+</tr>
+</table>
+
+<table height="100%" class="oedivided-box" cellspacing="0" cellpadding="0">
+<tr>
+<td class="oedivided-box-title" colspan="2">Categories</td>
+</tr>
+<td  height="100%" valign="top" colspan="2">
+<form name="deletecategory" method="post" action="$home/${eventsid}/admin/deletecategory.html">
+<input type="hidden" name="origURL" value="$content.path" />
+<table class="oedivided-box-blue" width="100%" border="0">
+	<tr>
+	<td>
+		<div width="100%" class="standard-table">
+		<a href="$home/${eventsid}/admin/addcategory.html" target="_parent" class="oelink-button" >Add New</a>
+	</div>
+	</td>
+	<td>
+	<div width="100%" class="standard-table">
+	<a href="javascript: document.deletecategory.submit();" class="oelink-button">Delete Selected</a>
+	</div>
+	</td>
+</tr>
+</table>
+<div class="oelist-box">    
+<table border="0" width="100%">
+	#foreach( $category in $usercalendar.getCategories().elements("category") )
+	<tr>
+		<td id="backupscell" width="100%"><input type="checkbox" name="deletecategory" value="$category.attributeValue('id')"><a href="$home/events/category/${category.attributeValue('id')}.html" class="edit-link" id="backupslink">$category.attributeValue('id')</a></td>
+	</tr>
+	#end
+</table>        
+</div>       
+</form>
+</td>
+</tr>
+</table>
+
+
+<table height="100%" class="oedivided-box" cellspacing="0" cellpadding="0">
+<tr>
+<td class="oedivided-box-title" colspan="2">Locations</td>
+</tr>
+<td  height="100%" valign="top" colspan="2">
+<form name="deletelocation" method="post" action="$home/${eventsid}/admin/deletelocation.html">
+<input type="hidden" name="origURL" value="$content.path" />
+<table class="oedivided-box-blue" width="100%" border="0">
+	<tr>
+	<td>
+		<div width="100%" class="standard-table">
+		<a href="$home/${eventsid}/admin/addlocation.html" target="_parent" class="oelink-button">Add New</a>
+	</div>
+	</td>
+	<td>
+	<div width="100%" class="standard-table">
+	<a href="javascript: document.deletelocation.submit();" class="oelink-button">Delete Selected</a>
+	</div>
+	</td>
+</tr>
+</table>
+<div class="oelist-box">    
+<table border="0" width="100%">
+	#foreach( $location in $usercalendar.getLocations().elements("location") )
+	<tr>
+		<td id="backupscell" width="100%"><input type="checkbox" name="deletelocation" value="$location.attributeValue('id')"><a href="$home/events/location/${location.attributeValue('id')}.html"  class="edit-link" id="backupslink">$location.attributeValue('id')</a></td>
+	</tr>
+	#end
+</table>        
+<br>
+</div>       
+</form>
+</td>
+</tr>
+</table>

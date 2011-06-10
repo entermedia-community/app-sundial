@@ -1,0 +1,19 @@
+		#set($thispage = $hits.getPage())
+		<table border=0 cellpadding=0 cellspacing=0 with="100%">
+		<tr>
+			<td width="100%">&nbsp;</td>
+			<td valign=top class=body nowrap >Page <b>$thispage</b> of $hits.totalPages </td>
+			<td>&nbsp;&nbsp;</td>
+			<td valign=top class=body nowrap>
+			#if( $hits.prevPage() )
+			<a href="$home$content.path?page=$hits.prevPage()" class=arrow><b>&lt; &lt;  Back</a>
+			#end
+			</td>
+			<td>&nbsp;&nbsp;</td>
+			<td valign=top class=body nowrap>
+			#if ( $hits.nextPage() )
+			<a href="$home$content.path?page=$hits.nextPage()" class=arrow><b> Forward &gt;&gt; </a>
+			#end
+ 		   </td>
+		</tr>
+		</table>
