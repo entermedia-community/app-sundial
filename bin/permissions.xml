@@ -1,4 +1,0 @@
-<permissions name="Events">
-<permission id="oe.events.admin" description="Event Admin" />
-</permissions>
-
