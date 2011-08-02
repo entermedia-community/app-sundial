@@ -1,5 +1,6 @@
 package com.openedit.events;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -69,9 +70,9 @@ public class CalendarSearcher extends BaseSearcher {
 	}
 
 	
-	public void saveAllData(List inAll, User inUser) {
+	public void saveAllData(Collection<Data> inAll, User inUser) {
 		for (Iterator iterator = inAll.iterator(); iterator.hasNext();) {
-			Object object = (Object) iterator.next();
+			Data object = (Data) iterator.next();
 			saveData(object, inUser);
 		}
 
