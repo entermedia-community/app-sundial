@@ -78,7 +78,7 @@ public class CalendarSearcher extends BaseSearcher {
 	}
 
 	
-	public void saveData(Object inData, User inUser) {
+	public void saveData(Data inData, User inUser) {
 		if(inData instanceof Calendar){
 			getCalendarArchive().saveCalendar((Calendar) inData, inUser);
 		}
